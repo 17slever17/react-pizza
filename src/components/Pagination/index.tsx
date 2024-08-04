@@ -6,8 +6,9 @@ import styles from './Pagination.module.scss'
 type PaginationProps = { pageCount: number; currentPage: number | undefined; setCurrentPage: (page: number) => void }
 
 const Pagination: React.FC<PaginationProps> = ({ pageCount, currentPage, setCurrentPage }) => (
+	<div className={styles.container}>
   <ReactPaginate
-    className={`${styles.root}`}
+    className={styles.root}
     breakLabel='...'
     nextLabel='>'
     onPageChange={(event) => setCurrentPage(event.selected + 1)}
@@ -15,7 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({ pageCount, currentPage, setCurr
     pageCount={pageCount}
     previousLabel='<'
     forcePage={ currentPage !== undefined ? (currentPage - 1): undefined}
-  />
+  /></div>
 )
 
 export default Pagination
